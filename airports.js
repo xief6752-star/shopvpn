@@ -18,43 +18,43 @@ function renderAirports(airports) {
   }
 
   grid.innerHTML = airports.map(airport => `
-    <a href="airport-review.html?id=${airport.id}" class="airport-card">
-      <div class="airport-header">
-        <div class="airport-info">
-          <div class="airport-name">
-            ${airport.name}
-            <span class="airport-tier tier-${airport.tier}">${airport.tier}</span>
+      <a href="${airport.affUrl}" target="_blank" rel="noopener noreferrer" class="airport-card">
+        <div class="airport-header">
+          <div class="airport-info">
+            <div class="airport-name">
+              ${airport.name}
+              <span class="airport-tier tier-${airport.tier}">${airport.tier}</span>
+            </div>
+            <div class="airport-slogan">${airport.description || airport.nameEn}</div>
           </div>
-          <div class="airport-slogan">${airport.description || airport.nameEn}</div>
+          <div class="airport-rating">
+            <span>⭐</span>
+            <span>${airport.rating}</span>
+          </div>
         </div>
-        <div class="airport-rating">
-          <span>⭐</span>
-          <span>${airport.rating}</span>
-        </div>
-      </div>
 
-      <div class="airport-features">
-        ${(airport.features || []).slice(0, 4).map(feature =>
-          `<span class="airport-feature">${feature}</span>`
-        ).join('')}
-      </div>
-
-      <div class="airport-price">
-        <div class="price-label">月付起步价</div>
-        <div class="price-value">
-          ¥${airport.price.monthly}
-          <small>/ 月</small>
+        <div class="airport-features">
+          ${(airport.features || []).slice(0, 4).map(feature =>
+            `<span class="airport-feature">${feature}</span>`
+          ).join('')}
         </div>
-      </div>
 
-      <div class="airport-footer">
-        <div class="airport-tags">
-          <span class="airport-tag">${airport.traffic || '流量充足'}</span>
-          <span class="airport-tag">${airport.devices || 3} 设备</span>
+        <div class="airport-price">
+          <div class="price-label">月付起步价</div>
+          <div class="price-value">
+            ¥${airport.price.monthly}
+            <small>/ 月</small>
+          </div>
         </div>
-        <span class="airport-link">查看详情 ↗</span>
-      </div>
-    </a>
+
+        <div class="airport-footer">
+          <div class="airport-tags">
+            <span class="airport-tag">${airport.traffic || '流量充足'}</span>
+            <span class="airport-tag">${airport.devices || 3} 设备</span>
+          </div>
+          <span class="airport-link">前往官网 ↗</span>
+        </div>
+      </a>
   `).join('');
 
   resultCount.textContent = airports.length;
@@ -62,7 +62,7 @@ function renderAirports(airports) {
 
 // 筛选逻辑
 function filterAirports() {
-  let filtered = [...AIRPORTS_DATA];
+  let filtered = AIRPORTS_DATA.filter(airport => airport.affUrl);
 
   // 档位筛选
   if (filters.tier !== 'all') {
@@ -109,7 +109,7 @@ document.querySelectorAll('.sort-tab').forEach(tab => {
     tab.classList.add('active');
 
     const sortType = tab.dataset.sort;
-    let sorted = [...AIRPORTS_DATA];
+    let sorted = AIRPORTS_DATA.filter(airport => airport.affUrl);
 
     if (sortType === 'price') {
       sorted.sort((a, b) => a.price.monthly - b.price.monthly);
@@ -137,13 +137,13 @@ filterAirports();
 // 更新档位统计数字
 function updateTierCounts() {
   const counts = {
-    all: AIRPORTS_DATA.length,
+    all: AIRPORTS_DATA.filter(airport => airport.affUrl).length,
     高端: 0,
     中端: 0,
     入门: 0
   };
 
-  AIRPORTS_DATA.forEach(airport => {
+  AIRPORTS_DATA.filter(airport => airport.affUrl).forEach(airport => {
     if (counts.hasOwnProperty(airport.tier)) {
       counts[airport.tier]++;
     }
