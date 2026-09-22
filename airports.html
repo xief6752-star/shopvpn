@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>机场推荐 · mapforvpn</title>
+<meta name="description" content="精选优质机场服务商推荐，支持 Netflix、ChatGPT 等应用">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 顶部导航 -->
+<header class="topbar">
+  <div class="topbar-container">
+    <div class="topbar-left">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">M</div>
+        <span class="brand-name">mapforvpn</span>
+      </a>
+      <nav class="nav-tabs">
+        <a href="index.html" class="nav-tab">应用</a>
+        <a href="airports.html" class="nav-tab active">机场</a>
+        <a href="feed.html" class="nav-tab">动态</a>
+        <a href="people.html" class="nav-tab">人物</a>
+        <a href="wiki.html" class="nav-tab">纪事</a>
+      </nav>
+    </div>
+
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="searchInput" placeholder="搜索机场名称或特征" />
+      <kbd class="kbd">⌘ K</kbd>
+    </div>
+
+    <div class="topbar-right">
+      <a href="#" class="user-badge">
+        <span class="user-icon">👤</span>
+        <span class="user-name">@huarunying</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- 主容器 -->
+<div class="layout">
+  <!-- 左侧边栏 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>按档位筛选</h3>
+    </div>
+
+    <div class="platform-list" id="tierMenu">
+      <button class="platform-item active" data-tier="all">
+        <span class="platform-icon">⌘</span>
+        <span class="platform-name">全部机场</span>
+        <span class="platform-count" id="totalCount">21</span>
+      </button>
+
+      <button class="platform-item" data-tier="高端">
+        <span class="platform-icon">✨</span>
+        <span class="platform-name">高端</span>
+        <span class="platform-count">8</span>
+      </button>
+
+      <button class="platform-item" data-tier="中端">
+        <span class="platform-icon">⭐</span>
+        <span class="platform-name">中端</span>
+        <span class="platform-count">7</span>
+      </button>
+
+      <button class="platform-item" data-tier="入门">
+        <span class="platform-icon">🌟</span>
+        <span class="platform-name">入门</span>
+        <span class="platform-count">6</span>
+      </button>
+    </div>
+
+    <div class="sidebar-promo">
+      <div class="promo-header">
+        <span>⚠️</span>
+        <span>选购提示</span>
+      </div>
+      <p>请从机场官网注册购买，避免通过第三方链接以防信息泄露。</p>
+    </div>
+
+    <div class="sidebar-notice">
+      <p>本目录仅作参考，使用前请自行验证服务质量与安全性。</p>
+    </div>
+  </aside>
+
+  <!-- 主内容区 -->
+  <main class="content">
+    <div class="content-header">
+      <h1 class="page-title">机场推荐</h1>
+      <p class="page-subtitle">精选优质代理服务商，支持主流流媒体和 AI 应用</p>
+    </div>
+
+    <!-- 结果栏 -->
+    <div class="results-bar">
+      <div class="results-count"><strong id="resultCount">21</strong> 个机场</div>
+      <div class="sort-tabs">
+        <button class="sort-tab active" data-sort="default">综合</button>
+        <button class="sort-tab" data-sort="price">价格</button>
+        <button class="sort-tab" data-sort="rating">评分</button>
+      </div>
+    </div>
+
+    <!-- 机场网格 -->
+    <div class="airports-grid" id="airportsGrid">
+      <!-- 机场卡片将通过 JavaScript 动态生成 -->
+    </div>
+  </main>
+</div>
+
+<script src="airports-data.js"></script>
+<script src="airports.js"></script>
+
+<style>
+.page-subtitle {
+  font-size: 15px;
+  color: var(--text);
+  margin-top: 8px;
+}
+
+.airports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.airport-card {
+  display: block;
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+.airport-card:hover {
+  border-color: var(--blue-line);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.airport-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.airport-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.airport-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.airport-tier {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tier-高端 {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #8b6914;
+}
+
+.tier-中端 {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.tier-入门 {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.airport-slogan {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.airport-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.airport-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.airport-feature {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #f5f5f5;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.airport-price {
+  padding: 14px;
+  background: #f8f9fb;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.price-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.price-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.price-value small {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.airport-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.airport-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+}
+
+.airport-tag {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.airport-link {
+  font-size: 13px;
+  color: var(--blue);
+  font-weight: 600;
+  white-space: nowrap;
+}
+</style>
+</body>
+</html>

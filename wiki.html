@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>纪事 · mapforvpn</title>
+<meta name="description" content="记录代理客户端从早期移动工具走向多内核、跨平台的产品纪事，梳理 Shadowsocks Android、Surge、v2rayN、Clash 与 sing-box、Hiddify 等代表工具的演进历程。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 顶部导航 -->
+<header class="topbar">
+  <div class="topbar-container">
+    <div class="topbar-left">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">M</div>
+        <span class="brand-name">mapforvpn</span>
+      </a>
+      <nav class="nav-tabs">
+        <a href="index.html" class="nav-tab">应用</a>
+        <a href="airports.html" class="nav-tab">机场</a>
+        <a href="feed.html" class="nav-tab">动态</a>
+        <a href="people.html" class="nav-tab">人物</a>
+        <a href="wiki.html" class="nav-tab active">纪事</a>
+      </nav>
+    </div>
+
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="wikiSearch" placeholder="搜索事件" />
+      <kbd class="kbd">⌘ K</kbd>
+    </div>
+
+    <div class="topbar-right">
+      <a href="#" class="user-badge">
+        <span class="user-icon">👤</span>
+        <span class="user-name">@huarunying</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- 主内容 -->
+<div class="page-content">
+  <div class="content-wrapper">
+    <div class="page-hero">
+      <h1>纪事</h1>
+      <p>从早期移动工具到多内核与跨平台，按年份阅读客户端的诞生、平台扩展与生态接替。</p>
+    </div>
+
+    <!-- 五阶段概览 -->
+    <details class="disclosure" open>
+      <summary>阅读导览 · 客户端演进的五个阶段</summary>
+      <div class="disclosure-body">
+        <div class="stage-legend">
+          <strong>时间相邻不等于代码继承。</strong>
+          <span>闭源产品只记录公开上架信息和可观察能力；兼容相同协议或配置，也不代表使用同一个内核。</span>
+        </div>
+        <div class="stage-grid">
+      <article class="stage-card">
+        <div class="stage-header">
+          <span class="stage-num">01</span>
+          <span class="stage-period">2012—2013</span>
+        </div>
+        <h3>早期可安装客户端</h3>
+        <p>Shadowsocks Android 与蓝灯把翻墙能力做成面向普通用户的移动或桌面应用，形成协议、服务之外可以直接安装和操作的早期产品形态。</p>
+        <div class="stage-apps">
+          <span class="stage-app-tag">Shadowsocks Android</span>
+        </div>
+      </article>
+      <article class="stage-card">
+        <div class="stage-header">
+          <span class="stage-num">02</span>
+          <span class="stage-period">2015—2019</span>
+        </div>
+        <h3>独立原生客户端</h3>
+        <p>从 Shadowrocket 开始，Apple 平台工具把规则分流、请求查看、MITM、脚本和系统网络能力组织成完整产品，而不只是为某一个开源核心提供界面。</p>
+        <div class="stage-apps">
+          <span class="stage-app-tag">Shadowrocket</span><span class="stage-app-tag">Surge</span><span class="stage-app-tag">Loon</span><span class="stage-app-tag">Quantumult X</span>
+        </div>
+      </article>
+      <article class="stage-card">
+        <div class="stage-header">
+          <span class="stage-num">03</span>
+          <span class="stage-period">2018—2019</span>
+        </div>
+        <h3>核心与界面分离</h3>
+        <p>图形客户端负责导入、订阅、节点和路由管理，代理核心可以独立升级，后来还逐渐发展成可切换的多核心结构。</p>
+        <div class="stage-apps">
+          <span class="stage-app-tag">V2rayU</span><span class="stage-app-tag">v2rayNG</span><span class="stage-app-tag">v2rayN</span>
+        </div>
+      </article>
+      <article class="stage-card">
+        <div class="stage-header">
+          <span class="stage-num">04</span>
+          <span class="stage-period">2022 起</span>
+        </div>
+        <h3>规则配置成为生态</h3>
+        <p>Clash 的规则、策略组和配置方式跨越原始项目生命周期，由 Mihomo 与新的桌面、移动客户端继续承接。</p>
+        <div class="stage-apps">
+          <span class="stage-app-tag">Clash Meta for Android</span><span class="stage-app-tag">FlClash</span><span class="stage-app-tag">Clash Verge Rev</span>
+        </div>
+      </article>
+      <article class="stage-card">
+        <div class="stage-header">
+          <span class="stage-num">05</span>
+          <span class="stage-period">2022 起</span>
+        </div>
+        <h3>多内核与跨平台</h3>
+        <p>客户端开始同时面对多种订阅、核心与平台；2024 年后，Hiddify 引入 Xray，v2rayN 扩展桌面平台，sing-box 继续完善官方图形客户端与分发渠道。</p>
+        <div class="stage-apps">
+          <span class="stage-app-tag">sing-box</span><span class="stage-app-tag">Hiddify</span><span class="stage-app-tag">Karing</span>
+        </div>
+      </article>
+        </div>
+      </div>
+    </details>
+
+    <!-- 时间线 -->
+    <section class="timeline-section">
+      <div class="timeline-header">
+        <h2>产品出现、平台扩展与生态接替</h2>
+        <span class="timeline-count">18 个历史节点</span>
+      </div>
+
+      <nav class="year-nav">
+        <a href="#year-2012">2012</a><a href="#year-2013">2013</a><a href="#year-2015">2015</a><a href="#year-2018">2018</a><a href="#year-2019">2019</a><a href="#year-2021">2021</a><a href="#year-2022">2022</a><a href="#year-2023">2023</a><a href="#year-2024">2024</a><a href="#year-2026">2026</a>
+      </nav>
+
+      <div class="timeline-content">
+      <section class="year-group" id="year-2012">
+        <h3 class="year-heading">2012<span>1 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="shadowsocks-android-client-start">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2012 年 12 月 15 日</time>
+              <span class="event-category cat-launch">产品出现</span>
+            </div>
+            <h4>Shadowsocks Android 客户端开始公开开发</h4>
+            <p class="event-desc">Shadowsocks Android 的早期提交在这一天加入 AndroidManifest、客户端界面与后台服务代码，说明 Shadowsocks 很早就不只是协议或命令行实现，也已经形成可安装的移动应用。</p>
+            <p class="event-context">Shadowsocks 同时属于协议与开源实现生态；这里记录的是面向 Android 用户的客户端产品起点。</p>
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://github.com/shadowsocks/shadowsocks-android/commit/2e0a6fc6f57e1f779db3057aa4023ae4eee253b3" target="_blank" rel="noreferrer">GitHub：Shadowsocks Android 早期客户端提交 ↗</a><a href="https://github.com/shadowsocks/shadowsocks-android" target="_blank" rel="noreferrer">GitHub：Shadowsocks Android ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/clowwindy" class="rel-pill rel-person">👤 clowwindy</a><a href="https://huarun.win/apps/shadowsocks-android" class="rel-pill rel-app">📱 Shadowsocks Android</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2013">
+        <h3 class="year-heading">2013<span>1 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="lantern-early-desktop-beta">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2013 年 12 月 4 日</time>
+              <span class="event-category cat-launch">产品出现</span>
+            </div>
+            <h4>蓝灯早期桌面测试版已在中国形成规模使用</h4>
+            <p class="event-desc">同期报道记录蓝灯仍处于测试阶段，却已在两周内从约 200 名中国用户增长到 1 万名。项目保存下来的旧版安装文档同时给出了 Windows、macOS 与 Ubuntu 安装流程，证明它当时已经是可下载安装的桌面应用。</p>
+            <p class="event-context">公开材料可以确认 2013 年已有可安装测试版，但不足以把这一天认定为蓝灯的精确首发日，因此本节点记录的是能够核验的早期产品状态与使用规模。</p>
+            <details class="event-evidence">
+              <summary>来源 2</summary>
+              <div class="event-sources"><a href="https://www.scmp.com/news/china-insider/article/1372661/use-lantern-software-means-view-banned-websites-grows-china" target="_blank" rel="noreferrer">南华早报：蓝灯测试版在中国的早期使用 ↗</a><a href="https://github.com/getlantern/www.getlantern.org/blob/master/app/docs/_sources/Installing.txt" target="_blank" rel="noreferrer">蓝灯旧版官方文档：桌面系统安装说明 ↗</a></div>
+              
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2015">
+        <h3 class="year-heading">2015<span>2 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="shadowrocket-app-store-launch">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2015 年 4 月 14 日</time>
+              <span class="event-category cat-launch">产品出现</span>
+            </div>
+            <h4>Shadowrocket 进入 App Store</h4>
+            <p class="event-desc">Apple 的公开上架记录显示 Shadowrocket 在这一天发布。它把多协议连接、按域名与 IP 分流、请求记录等能力带到 iPhone 和 iPad，形成持续维护的独立原生客户端路线。</p>
+            <p class="event-context">Shadowrocket 是闭源产品，公开资料不足以验证其内部代码血缘；这里记录产品上架与可观察能力，不把它归为任何开源核心的分支。</p>
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://itunes.apple.com/lookup?id=932747118&country=us" target="_blank" rel="noreferrer">Apple Search API：Shadowrocket 上架记录 ↗</a><a href="https://apps.apple.com/app/shadowrocket/id932747118" target="_blank" rel="noreferrer">App Store：Shadowrocket ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/apps/shadowrocket" class="rel-pill rel-app">📱 Shadowrocket</a></div></div>
+            </details>
+          </div>
+        </li>
+        <li class="event-item" id="surge-ios-product-launch">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2015 年 10 月 23 日</time>
+              <span class="event-category cat-launch">产品出现</span>
+            </div>
+            <h4>Surge iOS 1.0 进入 App Store</h4>
+            <p class="event-desc">Surge 官方十周年回顾确认，Surge iOS 1.0 在这一天正式上架 App Store。这是整个 Surge 产品线的公开起点，而不是现行 Surge 5 商店条目的起始日期。</p>
+            
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://t.me/SurgeTestFlightFeed/334" target="_blank" rel="noreferrer">Surge 官方 TestFlight 频道：十周年回顾 ↗</a><a href="https://technode.com/2015/11/24/surge-advanced-proxy-tool-ios-pulled-app-store/" target="_blank" rel="noreferrer">TechNode：2015 年 Surge App Store 报道 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/blankwonder" class="rel-pill rel-person">👤 Blankwonder</a><a href="https://huarun.win/apps/surge" class="rel-pill rel-app">📱 Surge</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2018">
+        <h3 class="year-heading">2018<span>2 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="loon-app-store-launch">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2018 年 5 月 9 日</time>
+              <span class="event-category cat-launch">产品出现</span>
+            </div>
+            <h4>Loon 进入 App Store</h4>
+            <p class="event-desc">Loon 的公开上架记录始于这一天。它把多协议代理、细粒度路由、流量记录、MITM、脚本和 DNS 配置组合在一个 iOS 客户端中。</p>
+            
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://itunes.apple.com/lookup?id=1373567447&country=us" target="_blank" rel="noreferrer">Apple Search API：Loon 上架记录 ↗</a><a href="https://apps.apple.com/app/loon/id1373567447" target="_blank" rel="noreferrer">App Store：Loon ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/apps/loon" class="rel-pill rel-app">📱 Loon</a></div></div>
+            </details>
+          </div>
+        </li>
+        <li class="event-item" id="v2rayu-repository-created">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2018 年 10 月 12 日</time>
+              <span class="event-category cat-separation">核心分离</span>
+            </div>
+            <h4>V2rayU 建立 macOS 图形客户端仓库</h4>
+            <p class="event-desc">V2rayU 的公开仓库在这一天建立。菜单栏界面负责订阅、二维码和配置导入，V2Ray 核心负责底层连接，体现出核心与客户端界面分工。</p>
+            
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://api.github.com/repos/yanue/V2rayU" target="_blank" rel="noreferrer">GitHub API：V2rayU 仓库元数据 ↗</a><a href="https://github.com/yanue/V2rayU" target="_blank" rel="noreferrer">GitHub：V2rayU ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/cores#v2ray-initial-commit" class="rel-pill rel-core">⚙️ V2Ray 核心</a><a href="https://huarun.win/history/protocols#vmess-modular-protocol" class="rel-pill rel-protocol">📡 VMess 协议</a><a href="https://huarun.win/apps/v2rayu" class="rel-pill rel-app">📱 V2rayU</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2019">
+        <h3 class="year-heading">2019<span>2 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="v2ray-mobile-desktop-clients">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2019 年 5—7 月</time>
+              <span class="event-category cat-separation">核心分离</span>
+            </div>
+            <h4>v2rayNG 与 v2rayN 分别覆盖移动端和桌面端</h4>
+            <p class="event-desc">v2rayNG 与 v2rayN 的公开仓库分别于 2019 年 5 月和 7 月建立。用户通过图形界面管理订阅、节点和路由，底层核心则可以独立更新和演进。</p>
+            <p class="event-context">这种结构后来继续扩展：两款客户端不再只对应最初的 V2Ray 路线，而是逐渐具备使用多个核心的能力。</p>
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://api.github.com/repos/2dust/v2rayNG" target="_blank" rel="noreferrer">GitHub API：v2rayNG 仓库元数据 ↗</a><a href="https://api.github.com/repos/2dust/v2rayN" target="_blank" rel="noreferrer">GitHub API：v2rayN 仓库元数据 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/2dust" class="rel-pill rel-person">👤 2dust</a><a href="https://huarun.win/history/cores#v2ray-initial-commit" class="rel-pill rel-core">⚙️ V2Ray 核心</a><a href="https://huarun.win/apps/v2rayng" class="rel-pill rel-app">📱 v2rayNG</a><a href="https://huarun.win/apps/v2rayn" class="rel-pill rel-app">📱 v2rayN</a></div></div>
+            </details>
+          </div>
+        </li>
+        <li class="event-item" id="quantumult-x-app-store-launch">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2019 年 10 月 11 日</time>
+              <span class="event-category cat-launch">产品出现</span>
+            </div>
+            <h4>Quantumult X 进入 App Store</h4>
+            <p class="event-desc">Quantumult X 的公开上架记录始于这一天。它延续 Apple 平台独立网络工具路线，将代理、分流、请求改写、MITM 与自定义 DNS 放进同一个客户端。</p>
+            
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://itunes.apple.com/lookup?id=1443988620&country=us" target="_blank" rel="noreferrer">Apple Search API：Quantumult X 上架记录 ↗</a><a href="https://apps.apple.com/app/quantumult-x/id1443988620" target="_blank" rel="noreferrer">App Store：Quantumult X ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/apps/quantumult-x" class="rel-pill rel-app">📱 Quantumult X</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2021">
+        <h3 class="year-heading">2021<span>1 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="clash-dotnet-removal-record">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2021 年 10 月 25 日（副本提交时间）</time>
+              <span class="event-category cat-transition">生态转折</span>
+            </div>
+            <h4>Clash .NET 的撤下声明留存</h4>
+            <p class="event-desc">Clash .NET 曾是基于 .NET 的 Windows Clash 图形客户端。第三方副本保存了“Removed according to regulations.”声明；原项目仓库当前不可访问，本站保留已下架应用条目及开发者 CoelWu 的历史记录。</p>
+            <p class="event-context">该日期来自保存声明的第三方提交，不代表已经核实的原项目撤下日期。现有凭据不足以确认撤下原因，不收录相关猜测。</p>
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://github.com/qidd2021/ClashDotNetFramework/commit/af41475228c837b6f70007b505f9a58481238761" target="_blank" rel="noreferrer">撤下声明副本及提交时间 ↗</a><a href="https://github.com/Sherman-Liu/ClashDotNetFramework/blob/7b685fe15eff318e4203426732a3d28ada158b56/README.md" target="_blank" rel="noreferrer">历史产品说明（保留的原始提交） ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/coelwu" class="rel-pill rel-person">👤 CoelWu</a><a href="https://huarun.win/apps/clash-net" class="rel-pill rel-app">📱 Clash .NET</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2022">
+        <h3 class="year-heading">2022<span>2 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="clash-meta-for-android-created">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2022 年 6 月 7 日</time>
+              <span class="event-category cat-ecosystem">生态扩展</span>
+            </div>
+            <h4>Clash Meta for Android 建立公开仓库</h4>
+            <p class="event-desc">MetaCubeX 建立 Android 图形客户端仓库，以 Clash 配置和规则隧道的使用方式承接 Clash.Meta、后来 Mihomo 的移动端体验。</p>
+            
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://api.github.com/repos/MetaCubeX/ClashMetaForAndroid" target="_blank" rel="noreferrer">GitHub API：Clash Meta for Android 仓库元数据 ↗</a><a href="https://github.com/MetaCubeX/ClashMetaForAndroid" target="_blank" rel="noreferrer">GitHub：Clash Meta for Android ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/wwqgtxx" class="rel-pill rel-person">👤 wwqgtxx</a><a href="https://huarun.win/history/people/dreamacro" class="rel-pill rel-person">👤 Dreamacro</a><a href="https://huarun.win/history/cores#clash-public-release" class="rel-pill rel-core">⚙️ Clash 核心</a><a href="https://huarun.win/history/cores#mihomo-1-18-release" class="rel-pill rel-core">⚙️ Mihomo 核心</a><a href="https://huarun.win/apps/clash-meta-for-android" class="rel-pill rel-app">📱 Clash Meta for Android</a></div></div>
+            </details>
+          </div>
+        </li>
+        <li class="event-item" id="sing-box-graphical-clients">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2022 年 6 月 30 日起</time>
+              <span class="event-category cat-platform">平台形态</span>
+            </div>
+            <h4>sing-box 把核心与官方图形客户端纳入同一体系</h4>
+            <p class="event-desc">sing-box 从通用代理平台出发，同时发展 Android、Apple、Windows 与 Linux 图形客户端。核心与界面仍有分工，但由同一项目体系定义跨平台能力。</p>
+            <p class="event-context">本节点日期是核心项目起点，不代表所有图形客户端在当天发布；Windows 与 Linux 官方桌面客户端在 2026 年的发布节点中单独记录。</p>
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://github.com/SagerNet/sing-box/commit/60691819b1b59742d685f75f51aefa371cb31b02" target="_blank" rel="noreferrer">GitHub：sing-box 初始提交 ↗</a><a href="https://sing-box.sagernet.org/clients/" target="_blank" rel="noreferrer">sing-box 官方图形客户端文档 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/nekohasekai" class="rel-pill rel-person">👤 nekohasekai</a><a href="https://huarun.win/history/cores#sing-box-initial-commit" class="rel-pill rel-core">⚙️ sing-box 核心</a><a href="https://huarun.win/apps/sing-box" class="rel-pill rel-app">📱 sing-box</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2023">
+        <h3 class="year-heading">2023<span>4 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="cross-platform-client-wave">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2023 年 5—11 月</time>
+              <span class="event-category cat-ecosystem">生态扩展</span>
+            </div>
+            <h4>新一批跨平台客户端集中建立</h4>
+            <p class="event-desc">Hiddify、FlClash 与 Karing 的公开仓库在这一时期先后建立。Flutter 等跨平台技术让一套客户端覆盖 Android、iOS、Windows、macOS 与 Linux，并兼容多种订阅和核心路线。</p>
+            
+            <details class="event-evidence">
+              <summary>来源 3 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://api.github.com/repos/hiddify/hiddify-app" target="_blank" rel="noreferrer">GitHub API：Hiddify 仓库元数据 ↗</a><a href="https://api.github.com/repos/chen08209/FlClash" target="_blank" rel="noreferrer">GitHub API：FlClash 仓库元数据 ↗</a><a href="https://api.github.com/repos/KaringX/karing" target="_blank" rel="noreferrer">GitHub API：Karing 仓库元数据 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/apps/hiddify" class="rel-pill rel-app">📱 Hiddify</a><a href="https://huarun.win/apps/flclash" class="rel-pill rel-app">📱 FlClash</a><a href="https://huarun.win/apps/karing" class="rel-pill rel-app">📱 Karing</a></div></div>
+            </details>
+          </div>
+        </li>
+        <li class="event-item" id="clash-for-windows-repository-deleted">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2023 年 11 月 2 日</time>
+              <span class="event-category cat-transition">生态转折</span>
+            </div>
+            <h4>Clash for Windows 发布仓库被删除</h4>
+            <p class="event-desc">同期记录确认，Fndroid 删除了 Clash for Windows 的 clash_for_windows_pkg 发布仓库，原 GitHub 发布与下载入口随之消失。这一桌面客户端的退出成为随后 Clash 客户端生态变动的重要起点。</p>
+            <p class="event-context">日期采用同期记录的北京时间。这里的“删库”指客户端发布仓库被删除，不表示公开的客户端源码被删除；现有证据不足以确认删除原因。</p>
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://github.com/net4people/bbs/issues/303" target="_blank" rel="noreferrer">net4people/bbs：Clash for Windows 删库的同期记录 ↗</a><a href="https://web.archive.org/web/20231102082223/https://github.com/Fndroid/clash_for_windows_pkg" target="_blank" rel="noreferrer">Internet Archive：Clash for Windows 原发布仓库存档 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/fndroid" class="rel-pill rel-person">👤 Fndroid</a><a href="https://huarun.win/history/people/dreamacro" class="rel-pill rel-person">👤 Dreamacro</a><a href="https://huarun.win/history/cores#clash-repositories-change" class="rel-pill rel-core">⚙️ Clash 核心删库</a></div></div>
+            </details>
+          </div>
+        </li>
+        <li class="event-item" id="clash-client-ecosystem-change">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2023 年 11 月 3 日</time>
+              <span class="event-category cat-transition">生态转折</span>
+            </div>
+            <h4>Clash for Android 删库，Clash Verge 与 ClashX 归档</h4>
+            <p class="event-desc">Clash for Android 的 Kr328/ClashForAndroid 仓库被删除，应用同时从 Google Play 下架；原版 Clash Verge 与 ClashX 仓库则被归档。桌面与 Android 客户端的维护和分发渠道在同一时期收缩，社区开始寻找替代客户端与接续项目。</p>
+            <p class="event-context">日期采用同期记录的北京时间。归档与删库是不同动作，这里描述各项目当时的状态，不据此推断共同原因或所有项目此后永久停止维护。</p>
+            <details class="event-evidence">
+              <summary>来源 3 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://github.com/net4people/bbs/issues/303" target="_blank" rel="noreferrer">net4people/bbs：2023 年 11 月项目变动汇总 ↗</a><a href="https://web.archive.org/web/20231103071433/https://github.com/Kr328/ClashForAndroid" target="_blank" rel="noreferrer">Internet Archive：Clash for Android 原仓库存档 ↗</a><a href="https://github.com/zzzgydi/clash-verge" target="_blank" rel="noreferrer">GitHub：原版 Clash Verge 的归档日期 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/kr328" class="rel-pill rel-person">👤 Kr328</a><a href="https://huarun.win/history/people/yichengchen" class="rel-pill rel-person">👤 yichengchen</a><a href="https://huarun.win/history/people/dreamacro" class="rel-pill rel-person">👤 Dreamacro</a><a href="https://huarun.win/history/cores#clash-repositories-change" class="rel-pill rel-core">⚙️ Clash 核心删库</a></div></div>
+            </details>
+          </div>
+        </li>
+        <li class="event-item" id="clash-verge-rev-created">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2023 年 11 月 21 日</time>
+              <span class="event-category cat-transition">生态转折</span>
+            </div>
+            <h4>Clash Verge Rev 接续桌面客户端路线</h4>
+            <p class="event-desc">Clash Verge Rev 的公开仓库在这一天建立，继续以 Mihomo 为核心提供桌面配置管理、系统代理、TUN 和跨平台使用体验。</p>
+            
+            <details class="event-evidence">
+              <summary>来源 2 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://api.github.com/repos/clash-verge-rev/clash-verge-rev" target="_blank" rel="noreferrer">GitHub API：Clash Verge Rev 仓库元数据 ↗</a><a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank" rel="noreferrer">GitHub：Clash Verge Rev ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/wwqgtxx" class="rel-pill rel-person">👤 wwqgtxx</a><a href="https://huarun.win/history/cores#mihomo-1-18-release" class="rel-pill rel-core">⚙️ Mihomo 核心</a><a href="https://huarun.win/apps/clash-verge-rev" class="rel-pill rel-app">📱 Clash Verge Rev</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2024">
+        <h3 class="year-heading">2024<span>2 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="hiddify-2-xray-core">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2024 年 7 月 31 日</time>
+              <span class="event-category cat-separation">核心分离</span>
+            </div>
+            <h4>Hiddify 2.0.5 将 Xray 纳入多内核客户端</h4>
+            <p class="event-desc">Hiddify 在 2.0.5 发布说明中明确加入 Xray 后端，可同时使用 sing-box 与 Xray。客户端从主要围绕 sing-box 的产品路线扩展为直接承接不同核心能力的统一入口。</p>
+            
+            <details class="event-evidence">
+              <summary>来源 1 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://github.com/hiddify/hiddify-app/releases/tag/v2.0.5" target="_blank" rel="noreferrer">Hiddify 官方发布：v2.0.5 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/rprx" class="rel-pill rel-person">👤 RPRX</a><a href="https://huarun.win/history/people/nekohasekai" class="rel-pill rel-person">👤 nekohasekai</a><a href="https://huarun.win/history/cores#xray-core-fork" class="rel-pill rel-core">⚙️ Xray 核心</a><a href="https://huarun.win/history/cores#sing-box-initial-commit" class="rel-pill rel-core">⚙️ sing-box 核心</a><a href="https://huarun.win/history/protocols#vless-preview" class="rel-pill rel-protocol">📡 VLESS 协议</a><a href="https://huarun.win/apps/hiddify" class="rel-pill rel-app">📱 Hiddify</a></div></div>
+            </details>
+          </div>
+        </li>
+        <li class="event-item" id="v2rayn-7-linux-preview">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2024 年 10 月 24 日</time>
+              <span class="event-category cat-platform">平台形态</span>
+            </div>
+            <h4>v2rayN 7.0.0 预发布版扩展到 Linux</h4>
+            <p class="event-desc">v2rayN 7.0.0 重构界面与业务的分工，发布采用 Avalonia UI 的 Linux x64 版本，并统一不同发布版本的配置文件。原本以 Windows 为主的客户端开始扩展桌面平台。</p>
+            <p class="event-context">该发布在 GitHub 标记为预发布；这里记录 Linux 版本的公开发布节点，不把它描述为稳定版首发或 macOS 首发。</p>
+            <details class="event-evidence">
+              <summary>来源 1 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://github.com/2dust/v2rayN/releases/tag/7.0.0" target="_blank" rel="noreferrer">v2rayN 官方预发布：7.0.0 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/2dust" class="rel-pill rel-person">👤 2dust</a><a href="https://huarun.win/apps/v2rayn" class="rel-pill rel-app">📱 v2rayN</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+
+      <section class="year-group" id="year-2026">
+        <h3 class="year-heading">2026<span>1 个节点</span></h3>
+        <ol class="event-list">
+        <li class="event-item" id="sing-box-1-14-desktop-apple-distribution">
+          <div class="event-marker"></div>
+          <div class="event-content">
+            <div class="event-header">
+              <time>2026 年 8 月 31 日</time>
+              <span class="event-category cat-platform">平台形态</span>
+            </div>
+            <h4>sing-box 1.14 扩展官方桌面客户端并调整 Apple 分发</h4>
+            <p class="event-desc">sing-box 1.14.0 发布说明正式介绍面向 Windows 与 Linux 的 sing-box for Desktop，并确认 iOS、tvOS 客户端以 sing-box MT 重返 App Store。macOS 客户端转向独立版本，旧版用户需要按官方迁移说明处理应用与数据。</p>
+            <p class="event-context">日期采用 1.14.0 的发布日，表示这份发布说明确认的客户端与分发变化，不将其视为每个商店条目的精确上架日。</p>
+            <details class="event-evidence">
+              <summary>来源 1 · 关联阅读</summary>
+              <div class="event-sources"><a href="https://github.com/SagerNet/sing-box/releases/tag/v1.14.0" target="_blank" rel="noreferrer">sing-box 官方发布：v1.14.0 ↗</a></div>
+              <div class="event-relations"><span class="rel-label">关联</span><div class="rel-pills"><a href="https://huarun.win/history/people/nekohasekai" class="rel-pill rel-person">👤 nekohasekai</a><a href="https://huarun.win/history/cores#sing-box-initial-commit" class="rel-pill rel-core">⚙️ sing-box 核心</a><a href="https://huarun.win/history/cores#sing-box-1-14-desktop-distribution" class="rel-pill rel-core">⚙️ sing-box 桌面分发</a><a href="https://huarun.win/apps/sing-box" class="rel-pill rel-app">📱 sing-box</a></div></div>
+            </details>
+          </div>
+        </li>
+        </ol>
+      </section>
+      </div>
+    </section>
+
+    <!-- 收录原则 -->
+    <details class="disclosure">
+      <summary>收录原则 · 产品、来源与边界</summary>
+      <div class="disclosure-body">
+        <p class="method-scope">这里只记录客户端产品本身的变化。仅收录产品诞生或终止、主要平台扩展、核心路线变化与生态接替等历史节点。常规功能、性能优化、缺陷修复与安装包调整不单独成条。</p>
+        <div class="method-grid">
+          <div class="method-item">
+            <h3>公开记录优先</h3>
+            <p>上架与建仓时间优先引用应用商店、官方网站和项目仓库。</p>
+          </div>
+          <div class="method-item">
+            <h3>不推断闭源血缘</h3>
+            <p>功能或配置相似不等于共享代码；无法验证时不标记内核来源。</p>
+          </div>
+          <div class="method-item">
+            <h3>保留版本边界</h3>
+            <p>旧产品线无法由现行商店条目证明时，会明确标注证据范围。</p>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<script>
+// 搜索过滤
+document.getElementById('wikiSearch').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.event-item').forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = !q || text.includes(q) ? '' : 'none';
+  });
+});
+</script>
+
+<style>
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.page-hero {
+  text-align: center;
+  padding: 20px 20px 8px;
+}
+
+.page-hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.page-hero p {
+  font-size: 15px;
+  color: var(--text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 折叠面板 */
+.disclosure {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: white;
+  overflow: hidden;
+}
+
+.disclosure summary {
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.disclosure summary::before {
+  content: '▸';
+  color: var(--blue);
+  transition: transform 0.2s;
+}
+
+.disclosure[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.disclosure-body {
+  padding: 0 20px 20px;
+}
+
+/* 五阶段 */
+.stage-legend {
+  padding: 12px 14px;
+  background: #fffbea;
+  border: 1px solid #ffe58f;
+  border-radius: 8px;
+  font-size: 12.5px;
+  color: #8a6800;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.stage-legend strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.stage-card {
+  padding: 16px;
+  background: #f8f9fb;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.stage-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.stage-num {
+  font-size: 11px;
+  font-weight: 800;
+  color: white;
+  background: var(--blue);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.stage-period {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.stage-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.stage-card p {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.stage-apps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.stage-app-tag {
+  font-size: 10.5px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* 时间线区域 */
+.timeline-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timeline-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.timeline-count {
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.year-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  background: #f8f9fb;
+  border-radius: 10px;
+}
+
+.year-nav a {
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid var(--line);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.year-nav a:hover {
+  border-color: var(--blue-line);
+  color: var(--blue);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.year-group {
+  scroll-margin-top: 80px;
+}
+
+.year-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--blue);
+}
+
+.year-heading span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.event-item {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid var(--line);
+}
+
+.event-marker {
+  position: absolute;
+  left: -6px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px var(--blue-line);
+}
+
+.event-content {
+  padding: 16px 18px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.event-header time {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.event-category {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.cat-launch { background: #e8f5e9; color: #2e7d32; }
+.cat-separation { background: #fff3e0; color: #e65100; }
+.cat-transition { background: #ffebee; color: #c62828; }
+.cat-ecosystem { background: #e3f2fd; color: #1565c0; }
+.cat-platform { background: #f3e5f5; color: #6a1b9a; }
+
+.event-content h4 {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.event-desc {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.event-context {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  padding: 8px 10px;
+  background: #f8f9fb;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.event-evidence summary {
+  font-size: 12px;
+  color: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.event-evidence summary::-webkit-details-marker {
+  display: none;
+}
+
+.event-evidence summary::before {
+  content: '▸ ';
+}
+
+.event-evidence[open] summary::before {
+  content: '▾ ';
+}
+
+.event-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.event-sources a {
+  font-size: 11.5px;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.event-sources a:hover {
+  text-decoration: underline;
+}
+
+.event-relations {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rel-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  padding-top: 4px;
+}
+
+.rel-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rel-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rel-person { background: #fce4ec; color: #ad1457; }
+.rel-core { background: #eef0ff; color: #4338ca; }
+.rel-protocol { background: #fff0e8; color: #c2540a; }
+.rel-app { background: var(--blue-soft); color: var(--blue); }
+
+/* 收录原则 */
+.method-scope {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.method-item h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.method-item p {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .page-hero h1 {
+    font-size: 28px;
+  }
+
+  .stage-grid,
+  .method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+</style>
+</body>
+</html>

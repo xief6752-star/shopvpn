@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mapforvpn·翻墙应用商店</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 顶部导航 -->
+<header class="topbar">
+  <div class="topbar-container">
+    <div class="topbar-left">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">M</div>
+        <span class="brand-name">mapforvpn</span>
+      </a>
+      <nav class="nav-tabs">
+        <a href="index-v2.html" class="nav-tab active">应用</a>
+        <a href="airports.html" class="nav-tab">机场</a>
+        <a href="feed.html" class="nav-tab">动态</a>
+        <a href="people.html" class="nav-tab">人物</a>
+        <a href="wiki.html" class="nav-tab">纪事</a>
+      </nav>
+    </div>
+
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="searchInput" placeholder="搜索应用" />
+      <kbd class="kbd">⌘ K</kbd>
+    </div>
+
+    <div class="topbar-right">
+      <a href="#" class="user-badge">
+        <span class="user-icon">👤</span>
+        <span class="user-name">@huarunying</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- 主容器 -->
+<div class="layout">
+  <!-- 左侧边栏 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>浏览应用</h3>
+    </div>
+
+    <div class="platform-list" id="platformList">
+      <button class="platform-item active" data-platform="all">
+        <span class="platform-icon">📱</span>
+        <span class="platform-name">全部应用</span>
+        <span class="platform-count">155</span>
+      </button>
+
+      <button class="platform-item" data-platform="android">
+        <span class="platform-icon">🤖</span>
+        <span class="platform-name">Android</span>
+        <span class="platform-count">46</span>
+      </button>
+
+      <button class="platform-item" data-platform="ios">
+        <span class="platform-icon">🍎</span>
+        <span class="platform-name">iPhone / iPad</span>
+        <span class="platform-count">57</span>
+      </button>
+
+      <button class="platform-item" data-platform="harmonyos">
+        <span class="platform-icon">⚡</span>
+        <span class="platform-name">HarmonyOS</span>
+        <span class="platform-count">7</span>
+      </button>
+
+      <button class="platform-item" data-platform="windows">
+        <span class="platform-icon">🪟</span>
+        <span class="platform-name">Windows</span>
+        <span class="platform-count">50</span>
+      </button>
+
+      <button class="platform-item" data-platform="mac">
+        <span class="platform-icon">💻</span>
+        <span class="platform-name">Mac</span>
+        <span class="platform-count">66</span>
+      </button>
+
+      <button class="platform-item" data-platform="linux">
+        <span class="platform-icon">🐧</span>
+        <span class="platform-name">Linux</span>
+        <span class="platform-count">42</span>
+      </button>
+
+      <button class="platform-item" data-platform="openwrt">
+        <span class="platform-icon">📡</span>
+        <span class="platform-name">OpenWrt</span>
+        <span class="platform-count">16</span>
+      </button>
+
+      <button class="platform-item" data-platform="router">
+        <span class="platform-icon">🔌</span>
+        <span class="platform-name">华硕 / 梅林</span>
+        <span class="platform-count">3</span>
+      </button>
+
+      <button class="platform-item" data-platform="steamdeck">
+        <span class="platform-icon">🎮</span>
+        <span class="platform-name">Steam Deck</span>
+        <span class="platform-count">1</span>
+      </button>
+    </div>
+
+    <div class="sidebar-promo">
+      <div class="promo-header">
+        <span>📢</span>
+        <span>Telegram 频道 ↗</span>
+      </div>
+      <p>@huarunying<br>客户端版本更新与推荐。</p>
+    </div>
+
+    <div class="sidebar-notice">
+      <p>工具未予于提供代理节点，请从可信渠道购买。</p>
+    </div>
+  </aside>
+
+  <!-- 主内容区 -->
+  <main class="content">
+    <div class="content-header">
+      <h1 class="page-title">mapforvpn·翻墙应用商店</h1>
+    </div>
+
+    <!-- 筛选器 -->
+    <div class="filters">
+      <div class="filter-group">
+        <label class="filter-label">内核</label>
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="core" data-value="all">全部</button>
+          <button class="filter-btn" data-filter="core" data-value="mihomo">Mihomo</button>
+          <button class="filter-btn" data-filter="core" data-value="sing-box">sing-box</button>
+          <button class="filter-btn" data-filter="core" data-value="自研">自研</button>
+          <button class="filter-btn" data-filter="core" data-value="xray">Xray</button>
+          <button class="filter-btn" data-filter="core" data-value="v2ray">V2Ray</button>
+          <button class="filter-btn" data-filter="core" data-value="meow-rs">meow-rs</button>
+          <button class="filter-btn" data-filter="core" data-value="clash-rs">clash-rs</button>
+          <button class="filter-btn" data-filter="core" data-value="其他">其他</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label">代码状态</label>
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="status" data-value="all">全部</button>
+          <button class="filter-btn" data-filter="status" data-value="开源">开源</button>
+          <button class="filter-btn" data-filter="status" data-value="源码不完整">源码不完整</button>
+          <button class="filter-btn" data-filter="status" data-value="未公开">未公开</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label">价格</label>
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="price" data-value="all">全部</button>
+          <button class="filter-btn" data-filter="price" data-value="免费">免费</button>
+          <button class="filter-btn" data-filter="price" data-value="付费">付费</button>
+          <button class="filter-btn" data-filter="price" data-value="特殊实">特殊实</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 结果栏 -->
+    <div class="results-bar">
+      <div class="results-count"><strong id="resultCount">120</strong> 个结果</div>
+      <div class="sort-tabs">
+        <button class="sort-tab active" data-sort="default">综合</button>
+        <button class="sort-tab" data-sort="recent">最近更新</button>
+        <button class="sort-tab" data-sort="hot">热度</button>
+      </div>
+    </div>
+
+    <!-- 应用网格 -->
+    <div class="apps-grid" id="appsGrid">
+      <!-- 应用卡片将通过 JavaScript 动态生成 -->
+    </div>
+  </main>
+</div>
+
+<script src="apps-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

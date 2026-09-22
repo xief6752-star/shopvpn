@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动态 · mapforvpn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 顶部导航 -->
+<header class="topbar">
+  <div class="topbar-container">
+    <div class="topbar-left">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">M</div>
+        <span class="brand-name">mapforvpn</span>
+      </a>
+      <nav class="nav-tabs">
+        <a href="index.html" class="nav-tab">应用</a>
+        <a href="airports.html" class="nav-tab">机场</a>
+        <a href="feed.html" class="nav-tab active">动态</a>
+        <a href="people.html" class="nav-tab">人物</a>
+        <a href="wiki.html" class="nav-tab">纪事</a>
+      </nav>
+    </div>
+
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="search" placeholder="搜索动态" />
+      <kbd class="kbd">⌘ K</kbd>
+    </div>
+
+    <div class="topbar-right">
+      <a href="#" class="user-badge">
+        <span class="user-icon">👤</span>
+        <span class="user-name">@huarunying</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- 主内容 -->
+<div class="page-content">
+  <div class="content-wrapper">
+    <div class="page-hero">
+      <h1>动态</h1>
+      <p>记录客户端版本更新、生态变化和应用目录的重要调整。</p>
+    </div>
+
+    <div class="cards-grid">
+      <article class="content-card">
+        <div class="card-meta">
+          <span class="card-tag">应用更新</span>
+          <span class="card-date">2026.09</span>
+        </div>
+        <h2>客户端应用目录持续补全</h2>
+        <p>新增跨平台客户端、HarmonyOS 应用以及路由器相关工具，并补充核心、代码状态和价格信息。</p>
+      </article>
+
+      <article class="content-card">
+        <div class="card-meta">
+          <span class="card-tag card-tag-warning">安全提示</span>
+          <span class="card-date">长期更新</span>
+        </div>
+        <h2>优先使用官方发布渠道</h2>
+        <p>应用卡片提供 App Store、GitHub 或开发者官网入口，下载前请核对发布者和版本信息。</p>
+      </article>
+
+      <article class="content-card">
+        <div class="card-meta">
+          <span class="card-tag card-tag-success">筛选功能</span>
+          <span class="card-date">客户端</span>
+        </div>
+        <h2>按平台与内核快速查找</h2>
+        <p>可以使用顶部搜索、左侧平台和内核筛选，快速定位适合当前设备的客户端。</p>
+        <a class="card-link" href="index.html">浏览应用目录 ↗</a>
+      </article>
+
+      <article class="content-card">
+        <div class="card-meta">
+          <span class="card-tag">Logo 更新</span>
+          <span class="card-date">2026.09.22</span>
+        </div>
+        <h2>应用图标全面更新</h2>
+        <p>为 66 个主流应用添加了精美的 logo 图标，提升视觉体验，更容易识别和查找应用。</p>
+      </article>
+
+      <article class="content-card">
+        <div class="card-meta">
+          <span class="card-tag card-tag-info">新增平台</span>
+          <span class="card-date">2026.09</span>
+        </div>
+        <h2>HarmonyOS 应用专区上线</h2>
+        <p>新增 HarmonyOS NEXT 原生应用支持，包括 ClashBox、NekoBox、Karing 等多款客户端。</p>
+      </article>
+
+      <article class="content-card">
+        <div class="card-meta">
+          <span class="card-tag">数据库扩展</span>
+          <span class="card-date">2026.09</span>
+        </div>
+        <h2>应用数量突破 120 款</h2>
+        <p>应用数据库从 82 款扩展到 120 款，覆盖更多小众和新兴客户端，满足不同用户需求。</p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<style>
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.page-hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.page-hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.page-hero p {
+  font-size: 16px;
+  color: var(--text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.content-card {
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.content-card:hover {
+  border-color: var(--blue-line);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.card-tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-tag-warning {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.card-tag-success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.card-tag-info {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.card-date {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.content-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.content-card p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.card-link {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page-hero h1 {
+    font-size: 28px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</body>
+</html>

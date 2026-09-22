@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">应用详情 · mapforvpn</title>
+<meta name="description" content="应用详细信息 - mapforvpn翻墙应用商店">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 顶部导航 -->
+<header class="topbar">
+  <div class="topbar-container">
+    <div class="topbar-left">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">M</div>
+        <span class="brand-name">mapforvpn</span>
+      </a>
+      <nav class="nav-tabs">
+        <a href="index.html" class="nav-tab active">应用</a>
+        <a href="airports.html" class="nav-tab">机场</a>
+        <a href="feed.html" class="nav-tab">动态</a>
+        <a href="people.html" class="nav-tab">人物</a>
+        <a href="wiki.html" class="nav-tab">纪事</a>
+      </nav>
+    </div>
+
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="search" placeholder="搜索应用" />
+      <kbd class="kbd">⌘ K</kbd>
+    </div>
+
+    <div class="topbar-right">
+      <a href="#" class="user-badge">
+        <span class="user-icon">👤</span>
+        <span class="user-name">@huarunying</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- 主内容 -->
+<div class="detail-page">
+  <div class="detail-container">
+    <!-- 面包屑导航 -->
+    <div class="breadcrumbs">
+      <a href="index.html">应用</a>
+      <span>/</span>
+      <span id="breadcrumbName">应用详情</span>
+    </div>
+
+    <!-- 应用头部 -->
+    <div class="app-hero">
+      <div class="hero-icon" id="heroIcon">
+        <!-- Logo 或图标将在这里显示 -->
+      </div>
+
+      <div class="hero-content">
+        <h1 id="appName">应用名称</h1>
+        <div class="hero-subtitle" id="appDeveloper">开发者</div>
+        <div class="hero-description" id="appDescription">应用描述</div>
+
+        <div class="download-section">
+          <a href="#" id="downloadBtn" class="download-btn" target="_blank">
+            <span>📥</span>
+            <span>立即下载</span>
+          </a>
+          <div class="hero-meta">
+            <span class="meta-item" id="appPrice">免费</span>
+            <span class="meta-item" id="appStatus">开源</span>
+          </div>
+        </div>
+
+        <div class="platform-badges" id="platformBadges">
+          <!-- 平台标签将在这里显示 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 详细信息 -->
+    <div class="detail-grid">
+      <!-- 左侧主内容 -->
+      <div class="detail-main">
+        <section class="detail-section">
+          <h2 class="section-title">核心信息</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-label">内核</div>
+              <div class="info-value" id="appCore">-</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">代码状态</div>
+              <div class="info-value" id="appCodeStatus">-</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">价格</div>
+              <div class="info-value" id="appPriceInfo">-</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">支持平台</div>
+              <div class="info-value" id="appPlatforms">-</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2 class="section-title">功能特性</h2>
+          <div class="tags-list" id="appTags">
+            <!-- 功能标签将在这里显示 -->
+          </div>
+        </section>
+
+        <section class="detail-section" id="guideSection">
+          <h2 class="section-title">📖 使用指南</h2>
+          <div class="guide-content">
+            <div class="guide-item">
+              <h3 class="guide-subtitle">快速开始</h3>
+              <p id="guideQuickStart" class="guide-text">-</p>
+            </div>
+            <div class="guide-item" id="guideFeaturesSection">
+              <h3 class="guide-subtitle">主要特性</h3>
+              <ul id="guideFeatures" class="guide-list"></ul>
+            </div>
+            <div class="guide-item" id="guideTipsSection">
+              <h3 class="guide-subtitle">使用技巧</h3>
+              <ul id="guideTips" class="guide-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" id="linksSection">
+          <h2 class="section-title">相关链接</h2>
+          <div class="links-list" id="appLinks">
+            <!-- 链接列表将在这里显示 -->
+          </div>
+        </section>
+      </div>
+
+      <!-- 右侧边栏 -->
+      <aside class="detail-sidebar">
+        <div class="sidebar-card">
+          <h3>下载提示</h3>
+          <ul>
+            <li>请从官方渠道下载应用</li>
+            <li>首次使用前请阅读使用说明</li>
+            <li>确保设备系统版本兼容</li>
+            <li>注意保护个人隐私信息</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>快速开始</h3>
+          <ol>
+            <li>下载并安装应用</li>
+            <li>导入订阅链接或配置文件</li>
+            <li>选择节点并连接</li>
+            <li>开始使用</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<script src="apps-data.js"></script>
+<script src="app-detail.js"></script>
+
+<style>
+.detail-page {
+  background: #f8f9fb;
+  min-height: calc(100vh - 60px);
+}
+
+.detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.breadcrumbs a {
+  color: var(--blue);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.breadcrumbs a:hover {
+  opacity: 0.8;
+}
+
+.app-hero {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 28px;
+  margin-bottom: 40px;
+  padding: 32px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.hero-icon {
+  width: 140px;
+  height: 140px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, #fff, #f8f9fb);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--blue);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+.hero-content h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.hero-description {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.download-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: var(--blue);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.download-btn:hover {
+  background: #0060d7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);
+}
+
+.hero-meta {
+  display: flex;
+  gap: 12px;
+}
+
+.meta-item {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #f5f5f5;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.platform-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.platform-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+}
+
+.detail-section {
+  padding: 28px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-item {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tag-item:first-child {
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #f8f9fb;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.link-item:hover {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.link-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.link-icon {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.sidebar-card {
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.sidebar-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.sidebar-card ul,
+.sidebar-card ol {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.sidebar-card li {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 960px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-sidebar {
+    order: -1;
+  }
+
+  .app-hero {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .hero-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .app-hero {
+    padding: 20px;
+  }
+
+  .detail-section {
+    padding: 20px;
+  }
+}
+</style>
+</body>
+</html>
