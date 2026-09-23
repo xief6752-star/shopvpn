@@ -31,9 +31,9 @@
     </div>
 
     <div class="topbar-right">
-      <a href="#" class="user-badge">
-        <span class="user-icon">👤</span>
-        <span class="user-name">@huarunying</span>
+      <a href="javascript:void(0)" onclick="bookmarkSite()" class="user-badge">
+        <span class="user-icon">🔖</span>
+        <span class="user-name">收藏本站</span>
       </a>
     </div>
   </div>
@@ -109,13 +109,18 @@
       </button>
     </div>
 
-    <div class="sidebar-promo">
-      <div class="promo-header">
-        <span>📢</span>
-        <span>Telegram 频道 ↗</span>
-      </div>
-      <p>@huarunying<br>客户端版本更新与推荐。</p>
-    </div>
+    <a href="https://kunpengjiasu.com/#/register?code=tQvtkYsB" target="_blank" rel="noopener" class="sidebar-ad">
+      <div class="sidebar-ad-badge">🔥 限时特惠</div>
+      <div class="sidebar-ad-title">鲲鹏加速</div>
+      <div class="sidebar-ad-price"><span class="sidebar-ad-num">¥1</span> 起试用</div>
+      <ul class="sidebar-ad-features">
+        <li>✅ 1 元体验 1GB 全速专线</li>
+        <li>✅ 解锁 ChatGPT / Netflix</li>
+        <li>✅ 1.0 倍率，不玩文字游戏</li>
+        <li>✅ 满意再升级 12 元/99GB</li>
+      </ul>
+      <div class="sidebar-ad-btn">立即体验 →</div>
+    </a>
 
     <div class="sidebar-notice">
       <p>工具未予于提供代理节点，请从可信渠道购买。</p>
@@ -185,5 +190,18 @@
 
 <script src="apps-data.js"></script>
 <script src="app.js"></script>
+<script>
+function bookmarkSite() {
+  var url = window.location.href;
+  var title = document.title;
+  if (window.sidebar && window.sidebar.addPanel) {
+    window.sidebar.addPanel(title, url, '');
+  } else if (window.external && ('AddFavorite' in window.external)) {
+    window.external.AddFavorite(url, title);
+  } else {
+    alert('请按 ' + (navigator.userAgent.toLowerCase().indexOf('mac') !== -1 ? 'Command/Cmd' : 'Ctrl') + '+D 收藏本站');
+  }
+}
+</script>
 </body>
 </html>
