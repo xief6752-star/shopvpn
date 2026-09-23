@@ -8,9 +8,9 @@ const AIRPORTS_DATA = [
     "tier": "高端",
     "rating": 5,
     "price": {
-      "monthly": 25,
-      "quarterly": 75,
-      "yearly": 300
+      "monthly": 20,
+      "quarterly": 55,
+      "yearly": 200
     },
     "traffic": "150GB/月起",
     "devices": 10,
@@ -23,7 +23,15 @@ const AIRPORTS_DATA = [
       "金融级专线",
       "Netflix/ChatGPT解锁",
       "1倍率无陷阱",
-      "TikTok原生"
+      "TikTok原生",
+      "接入点自主切换"
+    ],
+    "newFeatures": [
+      {
+        "title": "接入点更换",
+        "desc": "可根据本地网络（电信/移动/联通）自主切换节点入口，精准匹配个人宽带，有效降低晚高峰延迟与丢包率。",
+        "steps": ["根据本地网络修改接入点", "点击保存设置", "客户端重新导入订阅"]
+      }
     ],
     "tags": [
       "金融级专线",
@@ -44,7 +52,7 @@ const AIRPORTS_DATA = [
     "name": "鲲鹏加速",
     "nameEn": "KunPeng",
     "icon": "KP",
-    "tier": "入门",
+    "tier": "性价比",
     "rating": 4.2,
     "price": { "monthly": 1, "quarterly": 12, "yearly": 88 },
     "traffic": "1GB 起（月付 12 元 99GB）",
@@ -53,7 +61,7 @@ const AIRPORTS_DATA = [
     "features": ["1 元试用 1GB", "1.0 倍率无陷阱", "Netflix/ChatGPT 解锁", "4K 视频流畅"],
     "tags": ["1元试用", "低价入门", "流媒体", "ChatGPT"],
     "status": "正常运营",
-    "description": "以 1 元试用为特点的入门机场，1GB 全速专线流量，支持 ChatGPT、Netflix、TikTok 解锁，1.0 倍率不玩文字游戏，试用满意后可升级 12 元/99GB 主力套餐。",
+    "description": "1 元套餐机场，全速专线不限速。",
     "affUrl": "https://kunpengjiasu.com/#/register?code=tQvtkYsB",
     "promoCode": null,
     "reviewUrl": "airport-review.html?id=kunpeng",

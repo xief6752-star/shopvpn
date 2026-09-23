@@ -18,7 +18,7 @@ function renderAirports(airports) {
   }
 
   grid.innerHTML = airports.map(airport => `
-      <a href="${airport.affUrl}" target="_blank" rel="noopener noreferrer" class="airport-card">
+      <div class="airport-card">
         <div class="airport-header">
           <div class="airport-info">
             <div class="airport-name">
@@ -52,9 +52,12 @@ function renderAirports(airports) {
             <span class="airport-tag">${airport.traffic || '流量充足'}</span>
             <span class="airport-tag">${airport.devices || 3} 设备</span>
           </div>
-          <span class="airport-link">前往官网 ↗</span>
+          <div class="airport-actions">
+            <a href="airport-review.html?id=${airport.id}" class="airport-link-review">查看评测</a>
+            <a href="${airport.affUrl}" target="_blank" rel="noopener noreferrer" class="airport-link">前往官网 ↗</a>
+          </div>
         </div>
-      </a>
+      </div>
   `).join('');
 
   resultCount.textContent = airports.length;
